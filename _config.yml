@@ -7,7 +7,7 @@ profilepic: '/images/Chuda_001.jpg'
 bkimage: '/images/bk1.jpg'
 name: 'Jesus Contreras (chuda)'
 google_analytics: UA-XXXXXX-X
-font_awesome: 'XXXXXXXXXX.js'
+font_awesome: 'https://kit.fontawesome.com/963748127f.js'
 
 author:
   name: 'Jesus Contreras (chuda)'
