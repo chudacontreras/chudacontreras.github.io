@@ -10,12 +10,12 @@ font_awesome: 'XXXXXXXXXX.js'
 
 author:
   name: 'Jesus Contreras (chuda)'
-  email: info@thomas-zuehlke.de
-  twitter_username: thomzuehlke
+  email: info@chuda.me
+  twitter_username:  chudacontreras
 #  facebook_username: joshgerdes
-  github_username:  tzuehlke
-  linkedin_username:  thomas-zühlke-889182165
-  meetup_name: Azure-Meetup-Rostock-MV
+  github_username:  chudacontreras
+  linkedin_username:  chudacontreras
+  #meetup_name: Azure-Meetup-Rostock-MV
 
 # Build settings
 destination: _site
