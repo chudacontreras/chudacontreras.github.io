@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Platzi - Launch details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <style>
+        header {
+            background-color: #223945;
+            color: white;
+        }
+        footer {
+            background-color: #223945;
+            color: white;
+        }
+        .header {
+            display: inline;
+        }
+        .col-sm-6 {
+            background-color: #f3f8fb;
+            display: inline-block;
+        }
+    </style>
+    <header>
+        <h1 class="header">Platzinauta</h1>
+        <img class="header" src="img/platzi-logo.png" height="100px">
+        <img class="header" src="img/spacex-logo.png">
+        <div class="description">
+            <p>Like <a href="https://spacex.com" target="_blank">SpaceX</a> and <a href="https://platzi.com/" target="_blank">Platzi</a>? look launches info, for Platzinautas like you!</p>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div id="launch-info" class="card col-sm-6">
+                    <div id="launch-container">
+                        <h2>Launch Details</h2>
+                        <div id="title-launch-container">
+                            <h4 id="title-launch">
+                            </h4>
+                        </div>
+                        <div id="img-launch-container">
+                            <img id="img-launch" src="" width="40%" />
+                        </div>
+                        <div id="date-launch-container">
+                            <span><strong>When:</strong></span>
+                            <p id="date-launch">
+                            </p>
+                        </div>
+                        <div id="video-launch-container">
+                            <iframe class="embed-responsive-item" id="video-launch" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div id="details-launch-container">
+                            <p id="details-launch">
+                            </p>
+                        </div>
+                        <a href="index.html" id="back" class="btn btn-info">back</a>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
+        </div>
+    </section>
+    <footer>
+        <p>Developed by <a href="https://sb.js.org/">Santiago Bernal</a> - <a href="https://github.com/santiaguf/spacex-platzi" target="_blank">Code</a></p>
+    </footer>
+    <script type="text/javascript">
+        function getApiData(api) {
+            var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+            };
+
+            fetch(api, requestOptions)
+            .then(response => response.json())
+            .then(result => printLaunch(result))
+            .catch(error => console.log('error', error));
+        }
+
+        function printLaunch(result) {
+            const title = document.querySelector('#title-launch');
+            title.textContent = `${result.name}`;
+
+            const img = document.querySelector('#img-launch');
+            let imgUrl = `${result.links.patch.small}`;
+
+            if(imgUrl == 'null' || imgUrl == null){
+                imgUrl = 'img/astronauta.png'
+                img.setAttribute('width','60%');
+            }
+
+            img.setAttribute('src', imgUrl);
+
+            const date = document.querySelector('#date-launch');
+            date.textContent = `${result.date_local}`;
+
+            const video = document.querySelector('#video-launch');
+            youtubeId = result.links.youtube_id;
+            video.setAttribute('src','https://www.youtube.com/embed/'+youtubeId);
+
+            const details = document.querySelector('#details-launch');
+            details.textContent = `${result.details}`;
+        }
+
+        //get Launch ID
+        let urlString = window.location.href;
+        let url = new URL(urlString);
+        let launchId = url.searchParams.get('id');
+
+        // if launch id is not present, we will use first launch id
+        if(launchId == null || launchId == 'null'){
+            launchId = '5eb87cd9ffd86e000604b32a';
+        }
+
+        const apiBaseUrl = 'https://api.spacexdata.com/v4/launches/'+launchId;
+
+        getApiData(apiBaseUrl);
+
+    </script>
+</body>
+</html>
