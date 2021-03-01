@@ -1,0 +1,40 @@
+# Site settings
+title: chuda
+description: 'Business Card Page'
+url: 'http://chuda.me'
+baseurl: ''
+profilepic: '/images/Chuda_001.jpg'
+bkimage: '/images/bk1.jpg'
+name: 'Jesus Contreras (chuda)'
+google_analytics: UA-XXXXXX-X
+font_awesome: 'https://kit.fontawesome.com/963748127f.js'
+permalink: pretty
+
+author:
+  name: 'Jesus Contreras (chuda)'
+  email: info@chuda.me
+  twitter_username:  chudacontreras
+#  facebook_username: joshgerdes
+  github_username:  chudacontreras
+  linkedin_username:  chudacontreras
+  #meetup_name: Azure-Meetup-Rostock-MV
+
+# Build settings
+destination: _site
+markdown: kramdown
+highlighter: rouge
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+#plugins: ['jekyll-paginate']
+exclude: ['README.md', 'screenshot-overview.png']
+
+theme: jekyll-theme-cayman
