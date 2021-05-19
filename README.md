@@ -15,6 +15,7 @@ A Jekyll Theme, based on the Uno-Theme with a list of projects as Timeline.
 5. Configure: `_config.yml`
    * at least set `font_awesome` or download and add the font in `head.html`
 
+
 Access via: [http://localhost:4000/](http://localhost:4000/)
 
 ## Details/Features/Changes
