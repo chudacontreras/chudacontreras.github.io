@@ -50,3 +50,13 @@ override.tf.json
 *_override.tf.json
 
 POST.md
+.idea
+.idea/
+.env
+.env/
+.venv/
+.venv
+venv/
+venv
+env/
+env
