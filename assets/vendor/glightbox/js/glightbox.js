@@ -1833,7 +1833,7 @@
         customPlaceholder = createHTML(html);
       }
 
-      var placeholder = customPlaceholder ? customPlaceholder : createHTML("<div id=\"".concat(videoID, "\" data-plyr-provider=\"").concat(videoSource, "\" data-plyr-embed-id=\"").concat(embedID, "\"></div>"));
+      var placeholder = customPlaceholder ? customPlaceholder : createHTML("<div id=\"_".concat(videoID, "\" data-plyr-provider=\"").concat(videoSource, "\" data-plyr-embed-id=\"").concat(embedID, "\"></div>"));
       addClass(videoWrapper, "".concat(videoSource, "-video gvideo"));
       videoWrapper.appendChild(placeholder);
       videoWrapper.setAttribute('data-id', videoID);
